@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../Header/Header';
 import Leastestnews from '../LeastestNews/Leastestnews';
 import Nav from '../Nav/Nav';
+import Leftnav from '../Leftnav/Leftnav';
 
 const Home = () => {
     return (
@@ -11,10 +12,11 @@ const Home = () => {
             <Leastestnews></Leastestnews>
             <Nav></Nav>
             <main className='   grid grid-cols-12'>
-                <aside className='col-span-3'>Left</aside>
+                <aside className='col-span-3'><Leftnav></Leftnav></aside>
                 <aside className='col-span-6'>main</aside>
                 <aside className='col-span-3'>Right</aside>
             </main>
+
         </div>
     );
 };
