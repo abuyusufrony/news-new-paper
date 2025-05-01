@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { NavLink } from 'react-router';
 
 const Leftnav = () => {
     const [catagorey, setcatagorey] = useState([])
@@ -16,7 +17,9 @@ const Leftnav = () => {
 
             <div className='flex flex-col gap-2'>
                 {
-                    catagorey.map(cata => <button className='btn'> {cata.name} </button>)
+                    catagorey.map(cata => <NavLink to={`/cata/${cata.id}`}
+                        className='btn'> {cata.name}
+                    </NavLink>)
                 }
             </div>
 

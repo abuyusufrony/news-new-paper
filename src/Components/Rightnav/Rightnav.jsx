@@ -4,7 +4,7 @@ import Findus from '../Findus/Findus';
 
 const Rightnav = () => {
     return (
-        <div>
+        <div className='space-y-5'>
             <Loginwith></Loginwith>
             <Findus></Findus>
         </div>

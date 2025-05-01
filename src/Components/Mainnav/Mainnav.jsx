@@ -1,9 +1,10 @@
 import React from 'react';
+import { Outlet } from 'react-router';
 
 const Mainnav = () => {
     return (
         <div>
-            <h2>this are main nav</h2>
+            <Outlet></Outlet>
         </div>
     );
 };
