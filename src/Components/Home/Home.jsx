@@ -4,6 +4,9 @@ import Leastestnews from '../LeastestNews/Leastestnews';
 import Nav from '../Nav/Nav';
 import Leftnav from '../Leftnav/Leftnav';
 
+import Mainnav from '../Mainnav/Mainnav';
+import Rightnav from '../Rightnav/Rightnav';
+
 const Home = () => {
     return (
         <div>
@@ -13,8 +16,8 @@ const Home = () => {
             <Nav></Nav>
             <main className='   grid grid-cols-12'>
                 <aside className='col-span-3'><Leftnav></Leftnav></aside>
-                <aside className='col-span-6'>main</aside>
-                <aside className='col-span-3'>Right</aside>
+                <aside className='col-span-6'><Mainnav></Mainnav></aside>
+                <aside className='col-span-3'><Rightnav></Rightnav></aside>
             </main>
 
         </div>
