@@ -1,15 +1,15 @@
 
-import React, { useContext } from 'react';
+
 import { Link } from 'react-router';
 import user from '../../assets/user.png'
 import { Authcontext } from '../../Authprovider/Authprovider';
 
 
 const Nav = () => {
-    const getau = useContext(Authcontext)
+
     return (
         <div className='flex justify-between items-center p-2.5 bg-slate-100'>
-            <div className="">{getau}</div>
+            <div className=""></div>
             <div className='space-x-2.5'>
 
                 <Link to={'/'}>Home</Link>

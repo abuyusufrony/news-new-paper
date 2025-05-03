@@ -1,13 +1,42 @@
-import React from 'react';
+
+import { useContext } from 'react';
 import { Link } from 'react-router';
+import { Authcontext } from '../../Authprovider/Authprovider';
+
 
 const Regis = () => {
+
+    const { createuser } = useContext(Authcontext)
+
+    const handlelogin = (e) => {
+
+
+
+        e.preventDefault()
+        console.log("new user are coming ")
+        const form = new FormData(e.target)
+        const nam = form.get('name')
+        const ur = form.get('url')
+        const mail = form.get('email')
+        const pass = form.get('password')
+        console.log({ nam, ur, mail, pass })
+        createuser(mail, pass)
+            .then((res) => {
+                console.log(res.user)
+
+
+            })
+
+            .catch((err) => console.log("err", err))
+
+
+    }
     return (
         <div className='flex justify-center items-center min-h-screen '>
             <div className="card bg-base-100 w-full max-w-md shrink-0 shadow-2xl p-5">
                 <div className="card-body">
                     <h2 className='font-semibold text-center'>Login your account</h2>
-                    <form className="fieldset">
+                    <form onSubmit={handlelogin} className="fieldset">
                         <label className="label ">Name</label>
                         <input name='name' type="text" className="input" placeholder="Name" />
                         <label className="label ">Url</label>
