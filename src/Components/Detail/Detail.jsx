@@ -1,6 +1,9 @@
 import React from 'react';
 import { FaEye, FaStar } from 'react-icons/fa';
 
+
+// this card design from chatgpt!!!!!!!!!!
+
 const Detail = ({ news }) => {
     const {
         title,

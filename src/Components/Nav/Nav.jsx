@@ -10,13 +10,13 @@ const Nav = () => {
             <div className=""></div>
             <div className='space-x-2.5'>
 
-                <Link>Home</Link>
+                <Link to={'/'}>Home</Link>
                 <Link>About</Link>
                 <Link>Carieer</Link>
 
             </div>
             <div className='flex gap-2.5 items-center'>
-                <div><h2>Login</h2></div>
+                <div> <Link to={'/Auth/login'}>Login</Link ></div>
                 <div><img src={user} alt="" /></div>
 
 
