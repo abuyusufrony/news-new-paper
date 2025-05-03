@@ -11,6 +11,7 @@ const Login = () => {
     return (
 
         <div className='flex justify-center items-center min-h-screen '>
+
             <div className="card bg-base-100 w-full max-w-md shrink-0 shadow-2xl p-5">
                 <div className="card-body">
                     <h2 className='font-semibold text-center'>Login your account</h2>
