@@ -6,7 +6,7 @@ import { Authcontext } from '../../Authprovider/Authprovider';
 
 const Regis = () => {
 
-    const { createuser } = useContext(Authcontext)
+    const { createuser, setuser } = useContext(Authcontext)
 
     const handlelogin = (e) => {
 
@@ -23,6 +23,10 @@ const Regis = () => {
         createuser(mail, pass)
             .then((res) => {
                 console.log(res.user)
+                const us = res.user;
+                setuser(us)
+
+
 
 
             })
