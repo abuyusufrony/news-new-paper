@@ -7,6 +7,7 @@ import Login from '../Components/Login/Login';
 import Regis from '../Components/Regis/Regis';
 import ReadMore from '../Components/ReadMore/ReadMore';
 import Testingnews from '../Components/TestingNews/Testingnews';
+import PrivateRoute from './PrivateRoute';
 
 
 const Router = createBrowserRouter([{
@@ -21,8 +22,19 @@ const Router = createBrowserRouter([{
         },
         {
             path: '',
+
             element: <Navigate to={'/cata/4'}></Navigate>
-        }
+        },
+        {
+            path: '/:id',
+            element: <ReadMore>
+                <ReadMore></ReadMore>
+            </ReadMore>,
+            loader: () => fetch('/news.json')
+
+
+
+        },
     ],
 
 
@@ -32,6 +44,7 @@ const Router = createBrowserRouter([{
 {
     path: '/News',
     element: <Testingnews></Testingnews>,
+
     loader: () => fetch('/news.json')
 },
 

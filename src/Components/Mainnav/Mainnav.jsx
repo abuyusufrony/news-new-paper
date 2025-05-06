@@ -6,7 +6,7 @@ const Mainnav = () => {
     return (
         <div>
             <Outlet></Outlet>
-            <ReadMore></ReadMore>
+
         </div>
     );
 };

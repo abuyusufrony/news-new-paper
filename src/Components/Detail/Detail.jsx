@@ -41,7 +41,7 @@ const Detail = ({ news }) => {
 
             {/* Details */}
             <p className="text-sm text-gray-700 mb-4">{details.slice(0, 200)}...</p>
-            <span> <Link to={`/cata/${id}`}> Read more</Link></span>
+            <span> <Link to={`/${id}`}> Read more</Link></span>
 
             {/* Footer: Rating & Views */}
             <div className="flex justify-between items-center mt-2 text-sm text-gray-600">
