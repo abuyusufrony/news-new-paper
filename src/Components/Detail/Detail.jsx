@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaEye, FaStar } from 'react-icons/fa';
+import { Link } from 'react-router';
 
 
 // this card design from chatgpt!!!!!!!!!!
@@ -11,7 +12,9 @@ const Detail = ({ news }) => {
         details,
         rating,
         total_view,
-        author
+        author,
+        id
+
     } = news;
 
     return (
@@ -33,10 +36,12 @@ const Detail = ({ news }) => {
             {/* Image */}
             <div className="w-full h-56 overflow-hidden rounded-lg mb-3">
                 <img src={image_url} alt={title} className="w-full h-full object-cover" />
+
             </div>
 
             {/* Details */}
             <p className="text-sm text-gray-700 mb-4">{details.slice(0, 200)}...</p>
+            <span> <Link to={`/cata/${id}`}> Read more</Link></span>
 
             {/* Footer: Rating & Views */}
             <div className="flex justify-between items-center mt-2 text-sm text-gray-600">

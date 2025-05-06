@@ -1,6 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router';
 import Nav from '../Nav/Nav';
+import ReadMore from '../ReadMore/ReadMore';
 
 const Auth = () => {
     return (
@@ -9,6 +10,7 @@ const Auth = () => {
                 <Nav></Nav>
             </header>
             <Outlet></Outlet>
+
         </div>
     );
 };

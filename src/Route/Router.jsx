@@ -5,6 +5,8 @@ import NewsDetails from '../Components/NewsDetails/NewsDetails';
 import Auth from '../Components/Auth/Auth';
 import Login from '../Components/Login/Login';
 import Regis from '../Components/Regis/Regis';
+import ReadMore from '../Components/ReadMore/ReadMore';
+import Testingnews from '../Components/TestingNews/Testingnews';
 
 
 const Router = createBrowserRouter([{
@@ -19,7 +21,7 @@ const Router = createBrowserRouter([{
         },
         {
             path: '',
-            element: <Navigate to={'/cata/1'}></Navigate>
+            element: <Navigate to={'/cata/4'}></Navigate>
         }
     ],
 
@@ -27,12 +29,14 @@ const Router = createBrowserRouter([{
 
 
 },
-
 {
-    path: '/news',
-    element: <h2>This are news section </h2>
-
+    path: '/News',
+    element: <Testingnews></Testingnews>,
+    loader: () => fetch('/news.json')
 },
+
+
+
 {
     path: '/Auth',
     element: <Auth></Auth>,
@@ -44,9 +48,11 @@ const Router = createBrowserRouter([{
         {
             path: '/Auth/Regis',
             element: <Regis></Regis>
-        }
+        },
+
     ]
-}
+},
+
 
 
 ])

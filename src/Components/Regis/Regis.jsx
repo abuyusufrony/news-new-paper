@@ -22,9 +22,9 @@ const Regis = () => {
         console.log({ nam, ur, mail, pass })
         createuser(mail, pass)
             .then((res) => {
-                console.log(res.user)
-                const us = res.user;
-                setuser(us)
+                const user = res.user
+                setuser(user)
+
 
 
 

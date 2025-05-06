@@ -13,7 +13,8 @@ const Leftnav = () => {
     return (
         <div className=''>
 
-            <h2 className='font-sans font-semibold mb-1.5clear'>All Catagorey are :{catagorey.length}</h2>
+            <h2 className='font-sans font-semibold mb-1.5clear'>All Catagorey  are:{catagorey.length}</h2>
+            <p>this catagorey id are {catagorey.id}</p>
 
             <div className='flex flex-col gap-2'>
                 {

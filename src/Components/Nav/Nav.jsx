@@ -33,6 +33,7 @@ const Nav = () => {
                 <Link to={'/'}>Home</Link>
                 <Link>About</Link>
                 <Link>Carieer</Link>
+                <Link to={'/News'}>News</Link >
 
             </div>
             <div className='flex gap-2.5 items-center'>
