@@ -27,10 +27,11 @@ const Router = createBrowserRouter([{
         },
         {
             path: '/:id',
-            element: <ReadMore>
+
+            loader: () => fetch('/news.json'),
+            element: <PrivateRoute>
                 <ReadMore></ReadMore>
-            </ReadMore>,
-            loader: () => fetch('/news.json')
+            </PrivateRoute>
 
 
 
