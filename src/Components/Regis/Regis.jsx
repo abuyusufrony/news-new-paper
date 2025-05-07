@@ -1,13 +1,15 @@
 
 import { useContext, useState } from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate, } from 'react-router';
 import { Authcontext } from '../../Authprovider/Authprovider';
+
 
 
 const Regis = () => {
 
-    const { createuser, setuser } = useContext(Authcontext)
+    const { createuser, setuser, updateuser } = useContext(Authcontext)
     const [erorr, seterorr] = useState({})
+    const nav = useNavigate()
     const handlelogin = (e) => {
 
 
@@ -31,6 +33,16 @@ const Regis = () => {
             .then((res) => {
                 const user = res.user
                 setuser(user)
+                updateuser({ displayName: nam, photoURL: ur })
+                    .then(() => {
+
+                        console.log('user are updated')
+                        nav('/')
+                    })
+                    .catch((err) => {
+
+                        console.log("error are coming ", err)
+                    })
             })
 
             .catch((err) => console.log("err", err))
@@ -41,7 +53,7 @@ const Regis = () => {
         <div className='flex justify-center items-center min-h-screen '>
             <div className="card bg-base-100 w-full max-w-md shrink-0 shadow-2xl p-5">
                 <div className="card-body">
-                    <h2 className='font-semibold text-center'>Login your account</h2>
+                    <h2 className='font-semibold text-center'>Create New Account</h2>
                     <form onSubmit={handlelogin} className="fieldset">
                         <label className="label ">Name</label>
                         <input name='name' type="text" className="input" placeholder="Name" />
@@ -60,7 +72,7 @@ const Regis = () => {
                             <div><a className="link link-hover">Forgot password?</a></div>
                             <div><h2 className='font-semibold'>Allready  have an account? <Link to={'/Auth/login'} className='text-blue-500'>login</Link> </h2></div>
                         </div>
-                        <button className="btn btn-neutral mt-4">Login</button>
+                        <button className="btn btn-neutral mt-4">Registar</button>
                     </form>
                 </div>
 

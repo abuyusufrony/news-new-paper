@@ -41,14 +41,20 @@ const Nav = () => {
                     user && user.email ? <button className='cursor-pointer' onClick={userlogout} >singout</button> : <div> <Link to={'/Auth/login'}>Login</Link ></div>
                 }
 
-                <div><img src={userp} alt="" /></div>
+                {
+                    user && user?.email ? (
+                        <div> <img src={user?.photoURl} alt="" />
+                            <p>{user.displayName}</p>
+                        </div>) : (<div><img src={user?.photoURL} alt="" /></div>)
+
+                }
 
 
 
             </div>
 
 
-        </div>
+        </div >
     );
 };
 
