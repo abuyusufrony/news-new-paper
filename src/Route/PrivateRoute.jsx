@@ -7,9 +7,9 @@ import Loading from '../Components/Loading/Loading';
 
 const PrivateRoute = ({ children }) => {
     const { user, loading } = useContext(Authcontext)
-    // if (loading) {
-    //     return <Loading></Loading>
-    // }
+    if (loading) {
+        return <Loading></Loading>
+    }
     if (user && user.email) {
         return children;
     }
