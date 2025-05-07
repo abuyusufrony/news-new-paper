@@ -1,5 +1,5 @@
 
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Link } from 'react-router';
 import { Authcontext } from '../../Authprovider/Authprovider';
 
@@ -7,7 +7,7 @@ import { Authcontext } from '../../Authprovider/Authprovider';
 const Regis = () => {
 
     const { createuser, setuser } = useContext(Authcontext)
-
+    const [erorr, seterorr] = useState({})
     const handlelogin = (e) => {
 
 
@@ -16,19 +16,21 @@ const Regis = () => {
         console.log("new user are coming ")
         const form = new FormData(e.target)
         const nam = form.get('name')
+        if (nam.length < 3) {
+            seterorr({ ...erorr, nam: "name is too short" })
+        }
+
+
         const ur = form.get('url')
         const mail = form.get('email')
+
         const pass = form.get('password')
+
         console.log({ nam, ur, mail, pass })
         createuser(mail, pass)
             .then((res) => {
                 const user = res.user
                 setuser(user)
-
-
-
-
-
             })
 
             .catch((err) => console.log("err", err))
@@ -43,10 +45,15 @@ const Regis = () => {
                     <form onSubmit={handlelogin} className="fieldset">
                         <label className="label ">Name</label>
                         <input name='name' type="text" className="input" placeholder="Name" />
+                        {
+                            erorr.nam && <label className="label ">{erorr.nam}</label>
+                        }
+
                         <label className="label ">Url</label>
                         <input name='url' type="text" className="input" placeholder="photo url" />
                         <label className="label ">Email</label>
                         <input name='email' type="email" className="input" placeholder="Email" />
+
                         <label className="label">Password</label>
                         <input type="password" name='password' className="input" placeholder="Password" />
                         <div className='flex justify-between'>

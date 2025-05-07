@@ -1,10 +1,12 @@
-import React, { useContext, useEffect } from 'react';
-import { Link } from 'react-router';
+import React, { use, useContext, useEffect, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { Authcontext } from '../../Authprovider/Authprovider';
 
 const Login = () => {
-    const { loginUser } = useContext(Authcontext)
-
+    const { loginUser, setuser } = useContext(Authcontext)
+    const loaction = useLocation()
+    const navigate = useNavigate()
+    const [error, seterorr] = useState({})
     const handleLogin = (e) => {
         e.preventDefault()
         console.log('value are getting soon ')
@@ -14,10 +16,12 @@ const Login = () => {
         console.log({ mail, pass })
         loginUser(mail, pass)
             .then((res) => {
-                console.log(res.user)
+                const us = res.user;
+                setuser(us)
+                navigate(loaction.state ? loaction.state : '/')
             })
             .catch((err) => {
-                console.log('err', err)
+                seterorr({ ...error, login: err.code })
             })
 
 
@@ -34,6 +38,13 @@ const Login = () => {
                         <input name='email' type="email" className="input" placeholder="Email" />
                         <label className="label">Password</label>
                         <input name='password' type="password" className="input" placeholder="Password" />
+
+                        {
+                            error.login && <label className="label text-red-500 font-semibold">
+                                {error.login}
+                            </label>
+
+                        }
                         <div className='flex justify-between'>
                             <div><a className="link link-hover">Forgot password?</a></div>
                             <div><h2 className='font-semibold'>Don't  have an account? <Link to={'/Auth/Regis'} className='text-blue-500'>Reg</Link> </h2></div>
